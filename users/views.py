@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import auth, messages
 from django.urls import reverse, reverse_lazy
+from django.contrib.auth.views import LoginView
 
 from django.views.generic.edit import CreateView, UpdateView
 
@@ -10,22 +11,26 @@ from products.models import Basket
 
 # Create your views here.
 
+class UserLoginView(LoginView):
+    template_name = 'users/login.html'
+    form_class = UserLoginForm
 
-def login(request):
-    if request.method == 'POST':
-        form = UserLoginForm(data=request.POST)
-        if form.is_valid():
-            username = request.POST['username']
-            password = request.POST['password']
-            user = auth.authenticate(username=username, password=password)
-            if user:
-                auth.login(request, user)
-                return HttpResponseRedirect(reverse('index'))
 
-    else:
-        form = UserLoginForm()
-    context = {'form': form}
-    return render(request, 'users/login.html', context)
+# def login(request):
+#     if request.method == 'POST':
+#         form = UserLoginForm(data=request.POST)
+#         if form.is_valid():
+#             username = request.POST['username']
+#             password = request.POST['password']
+#             user = auth.authenticate(username=username, password=password)
+#             if user:
+#                 auth.login(request, user)
+#                 return HttpResponseRedirect(reverse('index'))
+#
+#     else:
+#         form = UserLoginForm()
+#     context = {'form': form}
+#     return render(request, 'users/login.html', context)
 
 
 class UserRegistrationView(CreateView):
@@ -38,6 +43,7 @@ class UserRegistrationView(CreateView):
         context = super(UserRegistrationView, self).get_context_data()
         context['title'] = 'Store - Регистрация'
         return context
+
 
 class UserProfileView(UpdateView):
     model = User
@@ -87,6 +93,6 @@ class UserProfileView(UpdateView):
 #     return render(request, 'users/profile.html', context)
 
 
-def logout(request):
-    auth.logout(request)
-    return HttpResponseRedirect(reverse('index'))
+# def logout(request):
+#     auth.logout(request)
+#     return HttpResponseRedirect(reverse('index'))
