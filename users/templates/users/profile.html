@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+{% if request.user.id == user.id %}
     <div class="container">
     <div class="row">
         <div class="col-lg-7">
@@ -63,5 +64,8 @@
         </div>
     </div>
 </div>
+{% else %}
+    Нет доступа
+{% endif %}
 {% endblock %}
 
