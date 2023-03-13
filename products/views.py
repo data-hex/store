@@ -1,10 +1,10 @@
-from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import HttpResponseRedirect
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
 
-from products.models import Product, ProductCategory, Basket
 from common.views import TitleMixin
+from products.models import Basket, Product, ProductCategory
 
 
 # Create your views here.
@@ -28,6 +28,7 @@ class ProductsListView(TitleMixin, ListView):
         context = super(ProductsListView, self).get_context_data()
         context['categories'] = ProductCategory.objects.all()
         return context
+
 
 # def products(request, category_id=0, page_number=1):
 #     products = Product.objects.filter(category_id=category_id) if category_id else Product.objects.all()
