@@ -136,4 +136,8 @@ LOGOUT_REDIRECT_URL = '/'
 
 # Sending emails
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.yandex.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'store.my7@yandex.ru'
+EMAIL_HOST_PASSWORD = 'rpvmscioppcypjlt'
+EMAIL_USE_SSL = True
