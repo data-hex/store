@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_dump_load_utf8',
     'django.contrib.sites',
     'debug_toolbar',
+    'django.contrib.humanize',
 
     'allauth',
     'allauth.account',
