@@ -1,0 +1,134 @@
+[
+  {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+      "name": "Худи черного цвета с монограммами adidas Originals",
+      "description": "Мягкая ткань для свитшотов. Стиль и комфорт – это образ жизни",
+      "price": "6090.00",
+      "quantity": 2,
+      "image": "products_image/Adidas-hoodie.png",
+      "category": 1
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+      "name": "Синяя куртка The North Face",
+      "description": "Гладкая ткань. Водонепроницаемое покрытие. Легкий и теплый пуховый наполнитель.",
+      "price": "23725.00",
+      "quantity": 1,
+      "image": "products_image/Blue-jacket-The-North-Face.png",
+      "category": 1
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+      "name": "Коричневый спортивный oversized-топ ASOS DESIGN",
+      "description": "Материал с плюшевой текстурой. Удобный и мягкий",
+      "price": "3390.00",
+      "quantity": 11,
+      "image": "products_image/Brown-sports-oversized-top-ASOS-DESIGN.png",
+      "category": 1
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+      "name": "Ботинки Мартинс",
+      "description": "Крепкие ботинки для города",
+      "price": "11290.00",
+      "quantity": 2,
+      "image": "products_image/Black-Dr-Martens-shoes.png",
+      "category": 2
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+      "name": "Рюкзак Nike",
+      "description": "Классный рюкзак в стиле урбан",
+      "price": "3500.00",
+      "quantity": 3,
+      "image": "products_image/Black-Nike-Heritage-backpack.png",
+      "category": 4
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+      "name": "Темное-синие брюки Asos",
+      "description": "Достойный дизайн, удобные брюки для спорта",
+      "price": "5800.00",
+      "quantity": 2,
+      "image": "products_image/Dark-blue-wide-leg-ASOs-DESIGN-trousers.png",
+      "category": 3
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+      "name": "Мини-бини",
+      "description": "Шапка мини-бини",
+      "price": "1580.00",
+      "quantity": 1,
+      "image": "products_image/minibini.jpg",
+      "category": 1
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+      "name": "Ремень",
+      "description": "Ремень из натуральной кожи",
+      "price": "2000.00",
+      "quantity": 1,
+      "image": "products_image/belt.jpg",
+      "category": 4
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+      "name": "Женский ремень",
+      "description": "Широкий женский ремень из эко-кожи",
+      "price": "2400.00",
+      "quantity": 1,
+      "image": "products_image/female_belt.jpg",
+      "category": 4
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+      "name": "Браслет",
+      "description": "Синий браслет",
+      "price": "800.00",
+      "quantity": 1,
+      "image": "products_image/braslet.jpg",
+      "category": 4
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 11,
+    "fields": {
+      "name": "Брелок Йода",
+      "description": "Милый брелок",
+      "price": "535.00",
+      "quantity": 1,
+      "image": "products_image/yoda.jpg",
+      "category": 5
+    }
+  }
+]
