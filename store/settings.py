@@ -26,7 +26,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-DOMAIN_NAME = 'http://localhost:8000'
+DOMAIN_NAME = 'http://127.0.0.1:8000'
 
 # Application definition
 
@@ -187,3 +187,7 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
     }
 }
+
+#youkassa
+
+YOUKASSA_SECRET_KEY = 'test_hjB9kRTSaqdNe8DhR3V4rawOfWmL4yeL19Ew0lqB1LU'
