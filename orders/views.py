@@ -14,6 +14,7 @@ from django.conf import settings
 from common.views import TitleMixin
 from orders.forms import OrderForm
 from orders.models import Order
+from products.models import Basket
 
 Configuration.account_id = 207540
 Configuration.secret_key = settings.YOUKASSA_SECRET_KEY
@@ -58,10 +59,11 @@ class OrderCreateView(TitleMixin, CreateView):
 
     def post(self, request, *args, **kwargs):
         super(OrderCreateView, self).post(request, *args, **kwargs)
+        baskets = Basket.objects.filter(user=self.request.user)
 
         payment = Payment.create({
             "amount": {
-                "value": "100.00",
+                "value": float(baskets.total_sum()),
                 "currency": "RUB"
             },
             "confirmation": {
@@ -69,7 +71,7 @@ class OrderCreateView(TitleMixin, CreateView):
                 "return_url": '{}{}'.format(settings.DOMAIN_NAME, reverse('orders:order_success'))
             },
             "capture": True,
-            "description": "Заказ №1"
+            "description": f" Заказ № {self.object.id}"
         }, uuid.uuid4())
         return HttpResponseRedirect(payment.confirmation.confirmation_url, status=HTTPStatus.SEE_OTHER)
 
