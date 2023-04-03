@@ -2,6 +2,7 @@ from django.db import models
 
 from users.models import User
 
+
 # Create your models here.
 
 class ProductCategory(models.Model):
@@ -39,6 +40,17 @@ class BasketQuerySet(models.QuerySet):
     def total_quantity(self):
         return sum(basket.quantity for basket in self)
 
+    # def stripe_products(self):
+    #     line_items = []
+    #     for basket in self:
+    #         item = {
+    #             'name': basket.product.name,
+    #             'price': basket.product.price,
+    #             'quantity': basket.quantity,
+    #         }
+    #         line_items.append(item)
+    #     return line_items
+
 
 class Basket(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE)
@@ -53,3 +65,12 @@ class Basket(models.Model):
 
     def sum(self):
         return self.product.price * self.quantity
+
+    def de_json(self):
+        basket_item = {
+            'product_name': self.product.name,
+            'quantity': self.quantity,
+            'price': float(self.product.price),
+            'sum': float(self.sum()),
+        }
+        return basket_item
