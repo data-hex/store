@@ -16,7 +16,7 @@ from orders.forms import OrderForm
 from orders.models import Order
 from products.models import Basket
 
-Configuration.account_id = 207540
+Configuration.account_id = settings.YOUKASSA_ACCOUNT_ID
 Configuration.secret_key = settings.YOUKASSA_SECRET_KEY
 
 
