@@ -21,6 +21,8 @@ from django.views.static import serve
 
 from products.views import IndexView
 
+from rest_framework.authtoken.views import obtain_auth_token
+
 static_urlpatterns = [
     re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
     re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),
@@ -34,7 +36,8 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('orders/', include('orders.urls', namespace='orders')),
     path("", include(static_urlpatterns)),
-    path('api/', include('api.urls', namespace='api'))
+    path('api/', include('api.urls', namespace='api')),
+    path('api-token-auth/', obtain_auth_token)
 ]
 
 
