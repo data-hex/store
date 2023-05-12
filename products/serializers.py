@@ -1,5 +1,6 @@
-from rest_framework import serializers, fields
-from products.models import Product, ProductCategory, Basket
+from rest_framework import fields, serializers
+
+from products.models import Basket, Product, ProductCategory
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -21,10 +22,8 @@ class BasketSerializer(serializers.ModelSerializer):
         fields = ('id', 'product', 'quantity', 'sum', 'total_sum', 'total_quantity', 'created_timestamp')
         read_only_fields = ('created_timestamp',)
 
-
     def get_total_sum(self, obj):
         return Basket.objects.filter(user_id=obj.user.id).total_sum()
-
 
     def get_total_quantity(self, obj):
         return Basket.objects.filter(user_id=obj.user.id).total_quantity()
