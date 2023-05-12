@@ -1,15 +1,14 @@
 import uuid
 from http import HTTPStatus
 
-from yookassa import Configuration, Payment
-
-from django.http import HttpResponse, HttpResponseRedirect
-from django.views.generic.base import TemplateView
+from django.conf import settings
+from django.http import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
+from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
-from django.conf import settings
+from yookassa import Configuration, Payment
 
 from common.views import TitleMixin
 from orders.forms import OrderForm
@@ -29,6 +28,7 @@ class CanceledTemplateView(TemplateView):
     template_name = 'orders/cancled.html'
 
 # Create your views here.
+
 
 class OrderListView(TitleMixin, ListView):
     template_name = 'orders/orders.html'
@@ -50,13 +50,15 @@ class OrderDetailView(DetailView):
         context['title'] = f'Store - Заказ # {self.object.id}'
         return context
 
+
 flag = False
+
+
 class OrderCreateView(TitleMixin, CreateView):
     template_name = 'orders/order-create.html'
     form_class = OrderForm
     success_url = reverse_lazy('orders:order_create')
     title = 'Store - Оформление заказа'
-
 
     def post(self, request, *args, **kwargs):
         super(OrderCreateView, self).post(request, *args, **kwargs)
@@ -86,4 +88,3 @@ class OrderCreateView(TitleMixin, CreateView):
     def form_valid(self, form):
         form.instance.initiator = self.request.user
         return super(OrderCreateView, self).form_valid(form)
-
