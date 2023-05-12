@@ -2,8 +2,8 @@ from django.db import models
 
 from users.models import User
 
-
 # Create your models here.
+
 
 class ProductCategory(models.Model):
     name = models.CharField(max_length=128, unique=True)
@@ -74,3 +74,18 @@ class Basket(models.Model):
             'sum': float(self.sum()),
         }
         return basket_item
+
+    @classmethod
+    def create_or_update(cls, product_id, user):
+        baskets = Basket.objects.filter(user=user, product_id=product_id)
+
+        if not baskets.exists():
+            obj = Basket.objects.create(user=user, product_id=product_id, quantity=1)
+            is_created = True
+            return obj, is_created
+        else:
+            basket = baskets.first()
+            basket.quantity += 1
+            basket.save()
+            is_crated = False
+            return basket, is_crated
