@@ -244,17 +244,17 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-#youkassa
+# youkassa
 
 YOUKASSA_ACCOUNT_ID = env('YOUKASSA_ACCOUNT_ID')
 YOUKASSA_SECRET_KEY = env('YOUKASSA_SECRET_KEY')
 
-#celery
+# celery
 
 CELERY_BROKER_URL = f'redis://{REDIS_HOST}:{REDIS_PORT}'
 CELERY_RESULT_BACKEND = f'redis://{REDIS_HOST}:{REDIS_PORT}'
 
-#Django REST Framework
+# Django REST Framework
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
